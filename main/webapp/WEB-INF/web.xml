@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+        <servlet>
+   <servlet-name>upload</servlet-name>
+   <servlet-class>beans.ec.dss.Servlet.UploadServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>upload</servlet-name>
+   <url-pattern>/upload</url-pattern>
+</servlet-mapping>   
+    <servlet>
+   <servlet-name>sendData</servlet-name>
+   <servlet-class>beans.ec.dss.Servlet.ControllerServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>sendData</servlet-name>
+   <url-pattern>/Display</url-pattern>
+   <url-pattern>/Send</url-pattern>
+   <url-pattern>/EditSlots</url-pattern>
+   <url-pattern>/new</url-pattern>
+   <url-pattern>/ViewCourses</url-pattern>
+   <url-pattern>/ViewFaculty</url-pattern>   
+   <url-pattern>/ViewFacultyAssigned</url-pattern>   
+    <url-pattern>/ViewOffer</url-pattern>   
+    <url-pattern>/edit</url-pattern>   
+    <url-pattern>/ViewOpenfor</url-pattern>   
+    <url-pattern>/ViewPrograms</url-pattern>       
+    <url-pattern>/MainMain</url-pattern>
+    <url-pattern>/Update</url-pattern>    
+    <url-pattern>/TableList</url-pattern>    
+    <url-pattern>/TimeTable/Display</url-pattern>    
+    <url-pattern>/TimeTable/EditSlots</url-pattern>     
+    <url-pattern>/TimeTable/UpdateSlots</url-pattern>     
+    <url-pattern>/TimeTable/UpdateSlot</url-pattern>     
+    <url-pattern>/TimeTable/Edit</url-pattern>     
+    <url-pattern>/</url-pattern>         
+
+</servlet-mapping>    
+<error-page>
+    <error-code>404</error-code>
+    <location>/Error_404.jsp</location>
+</error-page>
+</web-app>

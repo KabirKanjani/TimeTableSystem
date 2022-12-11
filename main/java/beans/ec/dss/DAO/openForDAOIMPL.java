@@ -1,0 +1,45 @@
+package beans.ec.dss.DAO;
+
+import beans.ec.dss.Utils.DBCon;
+import beans.ec.dss.entities.openfor;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class openForDAOIMPL implements openforDAO{
+
+    @Override
+    public void addOpenFor(openfor openf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override    
+    public List<openfor> viewOpenFor() 
+    {
+        String sql="SELECT * FROM course_allocation.openfor ORDER BY courseno ASC, programid ASC, semester ASC, term ASC ";        
+        List<openfor> list=new ArrayList<>();
+        try {
+            Connection cn = DBCon.getConnection();
+            PreparedStatement smt=cn.prepareStatement(sql);                    
+            ResultSet rs=smt.executeQuery();                
+            
+            while(rs.next())
+            {       
+                openfor f1=new openfor(rs.getString("courseno"),rs.getInt("programid"),rs.getInt("semester"),rs.getString("term").charAt(0));
+                list.add(f1);
+            }            
+        } 
+        catch (SQLException ex) {            
+            Logger.getLogger(coursesDAOIMPL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;        
+
+
+    }
+    
+}
